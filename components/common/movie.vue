@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data" class="relative">
+  <div v-if="data" class="relative pb-16">
     <div class="relative w-full movie__thumbnail">
       <img
         class="w-full h-full object-fit shadow"
@@ -16,18 +16,25 @@
         />
       </div>
     </div>
-    <h5 class="font-medium tracking-tight text-lg pt-2 text-white">
+    <h5 class="font-medium tracking-tight text-lg pt-2 text-gray-900">
       {{ data.name }}
     </h5>
     <div>
-      <span class="text-gray-400 text-xs"> {{ data.duration }} MIN </span>
+      <span class="text-gray-400 text-xs"> {{ data.duration }} phút </span>
     </div>
 
-    <button
-      class="cursor-pointer block mt-4 w-full focus:outline-none outline-none border-none bg-gray-800 hover:bg-gray-700 transition hover:transition text-white rounded-sm text-sm font-medium px-4 py-2"
-    >
-      Lịch chiếu phim
-    </button>
+    <template v-if="schedule">
+      <common-schedules :data="schedule.bundles[0].sessions" variant="light" />
+    </template>
+
+    <div class="absolute bottom-0 w-full">
+      <button
+        class="cursor-pointer block mt-4 w-full focus:outline-none outline-none border border-violet-700 bg-violet-700 hover:bg-violet-50 transition hover:text-violet-700 hover:transition text-white rounded-sm text-sm font-medium px-4 py-2"
+        @click.prevent="$emit('get-schedules')"
+      >
+        Lịch chiếu phim
+      </button>
+    </div>
   </div>
 </template>
 <script>
@@ -51,7 +58,13 @@ export default defineComponent({
     },
   },
 
-  setup(props) {},
+  setup(props) {
+    const currentDateSchedules = props?.data?.dates[0]
+
+    return {
+      schedule: currentDateSchedules,
+    }
+  },
 })
 </script>
 
