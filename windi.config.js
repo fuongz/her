@@ -12,6 +12,7 @@ export default defineConfig({
   theme: {
     fontFamily: {
       sans: ['Inter'],
+      serif: ['Merriweather'],
     },
 
     extend: {

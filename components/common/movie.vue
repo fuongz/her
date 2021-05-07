@@ -12,24 +12,26 @@
       >
         <play-icon
           title="Watch trailer"
-          class="text-white opacity-80 cursor-pointer hover:opacity-100 hover:scale-110 hover:transition transition w-14 fill-current absolute transform -translate-y-1/2 top-1/2 left-1/2 -translate-x-1/2"
+          class="text-white bg-transparent opacity-80 cursor-pointer hover:opacity-100 hover:scale-110 hover:transition transition w-14 fill-current absolute transform -translate-y-1/2 top-1/2 left-1/2 -translate-x-1/2"
         />
       </div>
     </div>
-    <h5 class="font-medium tracking-tight text-lg pt-2 text-gray-900">
+    <h5 class="font-medium tracking-tight text-lg pt-4">
       {{ data.name }}
     </h5>
-    <div>
+    <div v-if="data.duration">
       <span class="text-gray-400 text-xs"> {{ data.duration }} phút </span>
     </div>
 
-    <template v-if="schedule">
+    <template
+      v-if="schedule && schedule.bundles && schedule.bundles.length > 0"
+    >
       <common-schedules :data="schedule.bundles[0].sessions" variant="light" />
     </template>
 
     <div class="absolute bottom-0 w-full">
       <button
-        class="cursor-pointer block mt-4 w-full focus:outline-none outline-none border border-violet-700 bg-violet-700 hover:bg-violet-50 transition hover:text-violet-700 hover:transition text-white rounded-sm text-sm font-medium px-4 py-2"
+        class="cursor-pointer block mt-4 w-full focus:outline-none outline-none bg-gray-400 bg-opacity-8 hover:bg-opacity-10 transition hover:transition text-white text-opacity-80 hover:text-opacity-100 rounded-sm text-sm font-medium px-4 py-2"
         @click.prevent="$emit('get-schedules')"
       >
         Lịch chiếu phim
@@ -59,7 +61,10 @@ export default defineComponent({
   },
 
   setup(props) {
-    const currentDateSchedules = props?.data?.dates[0]
+    const currentDateSchedules =
+      props?.data?.dates && props?.data?.dates.length > 0
+        ? props?.data?.dates[0]
+        : null
 
     return {
       schedule: currentDateSchedules,

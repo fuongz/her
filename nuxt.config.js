@@ -1,5 +1,9 @@
 export default {
   ssr: false,
+  components: true,
+  generate: {
+    interval: 2000,
+  },
 
   head: {
     title: 'Her',
@@ -15,11 +19,9 @@ export default {
 
   plugins: [],
 
-  components: true,
-
   buildModules: [
-    '@nuxtjs/eslint-module',
     'nuxt-windicss',
+    '@nuxtjs/eslint-module',
     '@nuxtjs/google-fonts',
     '@nuxtjs/composition-api/module',
   ],
@@ -29,15 +31,12 @@ export default {
   googleFonts: {
     families: {
       Inter: true,
+      Merriweather: true,
     },
     display: 'swap',
     subsets: '',
     prefetch: true,
     preload: true,
-  },
-
-  generate: {
-    interval: 2000,
   },
 
   build: {
