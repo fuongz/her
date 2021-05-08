@@ -18,7 +18,7 @@ export default defineConfig({
     extend: {
       colors: {
         violet: colors.violet,
-        gray: colors.coolGray,
+        gray: colors.trueGray,
       },
     },
   },

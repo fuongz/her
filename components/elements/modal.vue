@@ -38,7 +38,7 @@
           leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div
-            class="inline-block align-bottom rounded text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            class="inline-block bg-gray-800 align-bottom rounded text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
           >
             <div class="px-4 pt-4 pb-4 sm:p-4 sm:pb-4">
               <div class="text-left">
