@@ -9,7 +9,7 @@
   >
     <div
       v-show="show"
-      class="fixed z-10 inset-0 overflow-y-auto"
+      class="fixed z-50 inset-0 overflow-y-auto"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
@@ -18,7 +18,7 @@
         class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
       >
         <div
-          class="fixed inset-0 bg-black bg-opacity-75 transition-opacity"
+          class="fixed inset-0 bg-black bg-opacity-70 transition-opacity"
           aria-hidden="true"
         />
 
@@ -61,7 +61,7 @@
   </transition>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({

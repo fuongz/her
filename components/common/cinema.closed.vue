@@ -1,5 +1,7 @@
 <template>
-  <div class="p-4 rounded-sm md:text-left text-center">
+  <div
+    class="p-8 rounded-sm md:text-left text-center bg-gray-400 bg-opacity-5 rounded-md"
+  >
     <div class="block md:flex gap-4 items-center justify-center">
       <icon-popcorns class="w-40 h-40" />
       <div>
@@ -15,7 +17,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import IconPopcorns from '~/assets/svg/popcorns.svg?inline'
 

@@ -21,12 +21,13 @@ export default {
 
   buildModules: [
     'nuxt-windicss',
+    '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-fonts',
     '@nuxtjs/composition-api/module',
   ],
 
-  modules: ['@nuxtjs/axios', '@nuxtjs/svg'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/svg', '@nuxtjs/dayjs'],
 
   googleFonts: {
     families: {
@@ -37,6 +38,12 @@ export default {
     subsets: '',
     prefetch: true,
     preload: true,
+  },
+
+  dayjs: {
+    locales: ['en', 'vi'],
+    defaultLocale: 'vi',
+    plugins: ['utc'],
   },
 
   build: {

@@ -44,7 +44,7 @@
   </elements-overlay>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref, reactive } from '@nuxtjs/composition-api'
 
 export default defineComponent({
@@ -66,11 +66,11 @@ export default defineComponent({
     },
   },
 
-  setup(props) {
+  setup() {
     const show = ref(false)
-    const movieSeleted = reactive({})
+    const movieSeleted = reactive<any>({})
 
-    const getSchedule = (movie) => {
+    const getSchedule = (movie: any) => {
       if (movie) {
         show.value = true
         movieSeleted.value = movie
